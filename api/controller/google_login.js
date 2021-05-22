@@ -44,5 +44,6 @@ exports.get_google_login = (req, res, next) => {
     const Gurl = urlGoogle()
 
     res.send(`<a href="${Gurl}">Login with Google</a>`)
+    // res.status(200).json({url : Gurl})  
   };
 

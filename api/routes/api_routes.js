@@ -3,9 +3,6 @@ const express = require("express");
 const router = express.Router();
 
 
-// POST _sample
-const _sample = require("../controller/_sample");
-router.post("/sample", _sample.post_sample);
 
 // POST send_email
 const send_email = require("../controller/send_email");

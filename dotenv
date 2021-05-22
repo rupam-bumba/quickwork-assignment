@@ -1,4 +1,4 @@
-create a .env file and put your file secrects
+create a .env file and put your  Credentials
 
 PORT = 9002
 MONGO_DB_CONNECTION =

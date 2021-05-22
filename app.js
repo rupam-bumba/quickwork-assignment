@@ -2,18 +2,12 @@
 const express = require("express");
 const app = express();
 
-
-
 // express json Parser
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-
-
-
 //path
 const path = require("path");
-
 
 //dotenv
 require("dotenv").config({ path: ".env" });
@@ -21,55 +15,18 @@ require("dotenv").config({ path: ".env" });
 // console.log(process.env);
 console.log("The value of PORT is by env:", process.env.PORT);
 
-
-
-// //database
-// mongoose = require("mongoose");
-// mongoose.pluralize(null);
-// mongoose
-//   .connect(process.env.MONGO_DB_CONNECTION, {
-//     useNewUrlParser: true,
-//     useUnifiedTopology: true,
-//     useFindAndModify: false,
-//     useCreateIndex: true,
-//   })
-//   .then(() => {
-//     console.log(
-//       "Mongo DB Connection Established " + "\n" + "DB Connected........"
-//     );
-//   })
-//   .catch((errors) => {
-//     console.log(" Connection Establishment error \n DB NOT Connected...");
-//     console.log(errors);
-//   });
-  
-  
-  
-
 // API Rought
 app.use("/api", require("./api/routes/api_routes"));
-
-
-
-
 
 // Serve Public static files
 app.use("/public", express.static(path.join(__dirname, "public")));
 
-
-
-
-
-
-// main rought 
+// main rought
 app.get("*", (req, res) => {
-  res.send(' <h1> <a href="http://localhost:9002/api/google-login">Users Credentials to login </a> </h1>')
+  res.send(
+    ' <h1> <a href="http://localhost:9002/api/google-login">Users Credentials to login </a> </h1>'
+  );
 });
-
-
-
-
-
 
 //error handeller
 app.use((req, res, next) => {
@@ -77,10 +34,6 @@ app.use((req, res, next) => {
   error.status = 404;
   next(error);
 });
-
-
-
-
 
 // error handeller
 app.use((error, req, res, next) => {
@@ -91,9 +44,5 @@ app.use((error, req, res, next) => {
     },
   });
 });
-
-
-
-
 
 module.exports = app;

@@ -30,3 +30,23 @@ preeti@quickwork.co
 
 ===============================================================================================================================
 # Documentation
+## key roughts 
+-   get : google_login
+-   get : users_credentials
+-   post : send_email
+
+## google login
+    This API route response googles Oauth 2.0 consent screen link to get login by users google account.
+
+## users_credentials
+     This API route save user client credentials in a JSON file 
+    On the file, we save  refresh_token, access_token, scope, email.
+    (as this assignment does not mention any specific file type so I chose. JSON ) 
+
+## send_email
+    This  API route is for send email.
+### json input    
+        "to": "", - resiver email address 
+        "subject": "", subject of the email
+        "text": "" text block of the email
+
