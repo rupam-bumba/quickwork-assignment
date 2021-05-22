@@ -33,8 +33,7 @@ Your application should -
             "text": "" text block of the email
 ***
 
-# Secrect and credintial
--  In developing precess I use my Personal account to test this API
-- As this google app is not verified it will not work for all google account 
-  you can contact me for testing
--  remove  Underscore (_) from  _clientCredentials.json file name or create a new clientCredentials.json file by simple copying it 
+# Secrect Credential and Setups 
+-  In the developing process, I use my Personal account to test this API which I cannot share please make your own version of the secret key and other Credential
+- As this google API app is not verified yet it will not work for all google account you can contact me for testing
+- Remove Underscore (_) from _clientCredentials.json file name or create a new clientCredentials.json file to store data
