@@ -1,4 +1,5 @@
 const { google } = require("googleapis");
+const fetch = require("node-fetch");
 
 var fs = require("fs");
 
@@ -15,19 +16,39 @@ async function getGtoken(req) {
 
     console.log(tokens.refresh_token);
     console.log(tokens.access_token);
+    console.log(JSON.stringify(tokens));
 
-    let saveGtoken = {
-      refresh_token: tokens.refresh_token,
-      access_token: tokens.access_token,
-    };
 
-    console.log(saveGtoken);
-    saveGtokenStr = JSON.stringify(saveGtoken);
 
-    fs.writeFile("././clientCredentials.json", saveGtokenStr, function (err) {
-      if (err) throw err;
-      console.log("Saved!");
-    });
+    fetch(
+      `https://www.googleapis.com/oauth2/v2/userinfo?access_token=${tokens.access_token}`
+    )
+      .then((res) => res.json())
+      .then((result) => {
+        console.log(result);
+        let saveGtoken = {
+          refresh_token: tokens.refresh_token,
+          access_token: tokens.access_token,
+          scope: tokens.scope,
+          email: result.email,
+        };
+
+       
+        console.log(saveGtoken);
+        saveGtokenStr = JSON.stringify(saveGtoken);
+
+        fs.writeFile(
+          "././clientCredentials.json",
+          saveGtokenStr,
+          function (err) {
+            if (err) throw err;
+            console.log("Saved!");
+          }
+        );
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   } catch (error) {
     console.log(error);
   }

@@ -1,0 +1,8 @@
+create a .env file and put your file secrects
+
+PORT = 9002
+MONGO_DB_CONNECTION =
+
+GCLIENTID = 
+GCLIENTSECRECT = 
+GREDIRECT  =  
