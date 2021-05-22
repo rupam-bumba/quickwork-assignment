@@ -1,10 +1,6 @@
-
-
-
-
 # Quickwork Test Assignment -
 
-## Build an API in NodeJS using express to send emails using the Gmail REST API. Do not use the client libraries.
+### Build an API in NodeJS using express to send emails using the Gmail REST API. Do not use the client libraries.
 
 Your application should -
 
@@ -14,38 +10,30 @@ Your application should -
 - Include appropriate comments in your code on how to use the APIs written by you.
 - Upload the server code to your Github and share the repository link with us. There is no need for a visual interface, only the server code is needed.
 
-As the next step, we have a test assignment for you to be submitted by , 23rd May 2021 11:59pm.
+***
 
-Please submit the assignment below on the form link -
+## Key Roughts 
+-   GET : google_login
+-   GET : users_credentials
+-   POST : send_email
 
-https://docs.google.com/forms/d/e/1FAIpQLSeQ0CjSs7n-_9X9y_pUuxu9P5BJzVRL4c_TTJy8cb5Fk6E1gg/viewform
-
-Our team will contact you after evaluating your assignment.
-
-Best regards,
-Preeti Joshi
-Program Manager
-Quickwork Technologies Pvt. Ltd.
-preeti@quickwork.co
-
-===============================================================================================================================
-# Documentation
-## key roughts 
--   get : google_login
--   get : users_credentials
--   post : send_email
-
-## GET http://localhost:9002/api/google-login
+#### GET http://localhost:9002/api/google-login
     This API route response googles Oauth 2.0 consent screen link to get login by users google account.
 
-## GET http://localhost:9002/api/users-credentials
+#### GET http://localhost:9002/api/users-credentials
     This API route save user client credentials in a JSON file 
     On the file, we save  refresh_token, access_token, scope, email.
     (as this assignment does not mention any specific file type so I chose. JSON ) 
 
-## POST: http://localhost:9002/api/send-email
+#### POST: http://localhost:9002/api/send-email
     This  API route is for send email.
     Json Input
             "to": "", - resiver email address 
             "subject": "", subject of the email
             "text": "" text block of the email
+***
+
+# Secrect and credintial
++  In developing precess I use my Personal account to test this API
+  As this google app is not verified it will not work for all google account 
+  you can contact me for testing
