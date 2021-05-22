@@ -1,6 +1,7 @@
-const { google } = require("googleapis");
-const nodemailer = require("nodemailer");
+const { google } = require("googleapis");  
+const nodemailer = require("nodemailer"); 
 var Credentials = require("../../clientCredentials.json");
+
 
 const googleConfig = {
   clientId: process.env.GCLIENTID,

@@ -1,12 +1,12 @@
 const { google } = require('googleapis');
-
+// js object to store clientId , clientSecret , redirect
 const googleConfig = {
   clientId: process.env.GCLIENTID,
   clientSecret:  process.env.GCLIENTSECRECT,
   redirect:  process.env.GREDIRECT,
 };
 
-
+// createing a connection to google by Oauth2.O 
 function createConnection() {
     return new google.auth.OAuth2(
       googleConfig.clientId,
@@ -14,7 +14,7 @@ function createConnection() {
       googleConfig.redirect
     );
   }
-
+// js object to store Scope 
   const defaultScope = [
     'https://www.googleapis.com/auth/plus.me',
     'https://www.googleapis.com/auth/userinfo.email',
@@ -22,7 +22,7 @@ function createConnection() {
 
   ];
 
-  
+  //  granting permission to access google api  ( user email , gmail api access , users data )
   function getConnectionUrl(auth) {
     return auth.generateAuthUrl({
       access_type: 'offline',
@@ -31,19 +31,21 @@ function createConnection() {
     });
   }
 
+// generating url to consent screen
   function urlGoogle() {
-    const auth = createConnection(); // this is from previous step
+
+    const auth = createConnection(); 
     const url = getConnectionUrl(auth);
     return url;
   }
 
 
 
-
+// main api 
 exports.get_google_login = (req, res, next) => {
     const Gurl = urlGoogle()
 
     res.send(`<a href="${Gurl}">Login with Google</a>`)
-    // res.status(200).json({url : Gurl})  
+    // res.status(200).json({url : Gurl})  // if you want json url only
   };
 
