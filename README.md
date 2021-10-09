@@ -1,4 +1,4 @@
-# Quickwork Test Assignment -
+# send email through node api -
 
 ### Build an API in NodeJS using express to send emails using the Gmail REST API. Do not use the client libraries.
 
