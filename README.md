@@ -1,4 +1,4 @@
-# send email through node api -
+# send Email Through Node api
 
 ### Build an API in NodeJS using express to send emails using the Gmail REST API. Do not use the client libraries.
 
